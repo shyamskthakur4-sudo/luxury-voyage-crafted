@@ -155,6 +155,7 @@ function RootComponent() {
         </main>
         <Footer />
         <FloatingButtons />
+        <Toaster />
       </div>
     </QueryClientProvider>
   );
