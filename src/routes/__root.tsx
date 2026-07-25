@@ -83,17 +83,23 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Megha Tours & Travel — Luxury Travel Agency" },
+      { title: "Megha Tours & Travel — Luxury Travel, Effortlessly Yours" },
       {
         name: "description",
         content:
-          "Megha Tours & Travel — your trusted travel partner for flights, hotels, visas and curated holiday packages across India and the world.",
+          "Explore the world with confidence. Curated flights, hotels, visas and holiday packages by Megha Tours & Travel.",
       },
       { name: "author", content: "Megha Tours & Travel" },
       { name: "theme-color", content: "#0F4C81" },
       { property: "og:site_name", content: "Megha Tours & Travel" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "Megha Tours & Travel — Luxury Travel, Effortlessly Yours" },
+      { name: "twitter:title", content: "Megha Tours & Travel — Luxury Travel, Effortlessly Yours" },
+      { property: "og:description", content: "Explore the world with confidence. Curated flights, hotels, visas and holiday packages by Megha Tours & Travel." },
+      { name: "twitter:description", content: "Explore the world with confidence. Curated flights, hotels, visas and holiday packages by Megha Tours & Travel." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/4MCb9YYGoaaFQgioObjP7lxRaxH3/social-images/social-1784997676241-Screenshot_25-7-2026_221055_lovable.dev.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/4MCb9YYGoaaFQgioObjP7lxRaxH3/social-images/social-1784997676241-Screenshot_25-7-2026_221055_lovable.dev.webp" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

@@ -42,7 +42,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Curated flights, hotels, visas and holiday packages by Megha Tours & Travel.",
+          "Explore the world with confidence. Curated flights, hotels, visas and holiday packages by Megha Tours & Travel.",
       },
       { property: "og:url", content: "/" },
       { property: "og:image", content: IMG.hero },
