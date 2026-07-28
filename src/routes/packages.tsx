@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { motion } from "framer-motion";
 import { ArrowRight, Clock, MapPin, Star } from "lucide-react";
 import { useMemo, useState } from "react";
-import { FadeIn, Stagger, StaggerItem } from "../components/site/motion";
+import { FadeIn } from "../components/site/motion";
 import { IMG } from "../lib/images";
 
 export const Route = createFileRoute("/packages")({
@@ -95,9 +96,14 @@ function Packages() {
             ))}
           </FadeIn>
 
-          <Stagger key={active} className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {list.map((p) => (
-              <StaggerItem key={p.title}>
+          <div key={active} className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {list.map((p, i) => (
+              <motion.div
+                key={`${active}-${p.title}`}
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: Math.min(i * 0.06, 0.4), ease: [0.22, 1, 0.36, 1] }}
+              >
                 <div className="card-hover group h-full overflow-hidden rounded-3xl border border-border bg-card shadow-card">
                   <div className="relative h-56 overflow-hidden">
                     <img
@@ -149,9 +155,9 @@ function Packages() {
                     </div>
                   </div>
                 </div>
-              </StaggerItem>
+              </motion.div>
             ))}
-          </Stagger>
+          </div>
         </div>
       </section>
     </div>
