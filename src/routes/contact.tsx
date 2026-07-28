@@ -34,9 +34,20 @@ function Contact() {
       toast.error("Please share your name and phone number.");
       return;
     }
-    toast.success("Thank you! Our travel designer will reach out shortly.");
+    const lines = [
+      `*New Travel Enquiry — Megha Tours & Travel*`,
+      ``,
+      `*Name:* ${form.name}`,
+      `*Phone:* ${form.phone}`,
+      form.email ? `*Email:* ${form.email}` : null,
+      form.message ? `*Message:* ${form.message}` : null,
+    ].filter(Boolean);
+    const url = `https://wa.me/919784349333?text=${encodeURIComponent(lines.join("\n"))}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+    toast.success("Opening WhatsApp to send your enquiry…");
     setForm({ name: "", phone: "", email: "", message: "" });
   };
+
 
   return (
     <div>
