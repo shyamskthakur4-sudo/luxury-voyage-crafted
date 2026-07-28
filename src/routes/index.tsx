@@ -93,26 +93,7 @@ const packages = [
   { title: "Weekend Getaways", price: "9,999", nights: "2N / 3D", key: "Weekend" },
 ];
 
-const testimonials = [
-  {
-    name: "Aditi & Rohan Sharma",
-    trip: "Bali Honeymoon",
-    quote:
-      "From private villas to sunset dinners, every detail was flawless. Truly the honeymoon of our dreams.",
-  },
-  {
-    name: "The Mehta Family",
-    trip: "Europe Grand Tour",
-    quote:
-      "10 cities, zero stress. The team handled visas, transfers and even our children's preferences beautifully.",
-  },
-  {
-    name: "Kavya Iyer",
-    trip: "Kashmir Retreat",
-    quote:
-      "Luxurious houseboats, private shikaras and warm hospitality. Megha Tours turned a holiday into a memory.",
-  },
-];
+
 
 function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
