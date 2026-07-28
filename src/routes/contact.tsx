@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Mail, MapPin, Phone, Send, MessageCircle } from "lucide-react";
+import { Mail, MapPin, Phone, MessageCircle } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { FadeIn } from "../components/site/motion";
