@@ -144,8 +144,9 @@ function Contact() {
                   type="submit"
                   className="btn-gold mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-4 text-sm font-semibold sm:w-auto"
                 >
-                  Send Enquiry <Send className="h-4 w-4" />
+                  Send Enquiry via WhatsApp <MessageCircle className="h-4 w-4" />
                 </button>
+
               </form>
             </FadeIn>
           </div>
