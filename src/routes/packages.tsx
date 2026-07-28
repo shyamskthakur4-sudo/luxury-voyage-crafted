@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { motion } from "framer-motion";
 import { ArrowRight, Clock, MapPin, Star } from "lucide-react";
 import { useMemo, useState } from "react";
-import { FadeIn, Stagger, StaggerItem } from "../components/site/motion";
+import { FadeIn } from "../components/site/motion";
 import { IMG } from "../lib/images";
 
 export const Route = createFileRoute("/packages")({
