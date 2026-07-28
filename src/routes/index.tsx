@@ -11,7 +11,6 @@ import {
   Globe,
   Landmark,
   Briefcase,
-  Star,
   ShieldCheck,
   Wallet,
   Headphones,
@@ -94,26 +93,7 @@ const packages = [
   { title: "Weekend Getaways", price: "9,999", nights: "2N / 3D", key: "Weekend" },
 ];
 
-const testimonials = [
-  {
-    name: "Aditi & Rohan Sharma",
-    trip: "Bali Honeymoon",
-    quote:
-      "From private villas to sunset dinners, every detail was flawless. Truly the honeymoon of our dreams.",
-  },
-  {
-    name: "The Mehta Family",
-    trip: "Europe Grand Tour",
-    quote:
-      "10 cities, zero stress. The team handled visas, transfers and even our children's preferences beautifully.",
-  },
-  {
-    name: "Kavya Iyer",
-    trip: "Kashmir Retreat",
-    quote:
-      "Luxurious houseboats, private shikaras and warm hospitality. Megha Tours turned a holiday into a memory.",
-  },
-];
+
 
 function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -381,39 +361,8 @@ function Home() {
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
-      <Section
-        eyebrow="Testimonials"
-        title="Stories from our travellers"
-      >
-        <Stagger className="grid gap-6 md:grid-cols-3">
-          {testimonials.map((t) => (
-            <StaggerItem key={t.name}>
-              <div className="glass card-hover h-full rounded-3xl p-7">
-                <div className="flex gap-1 text-gold">
-                  {[0, 1, 2, 3, 4].map((i) => (
-                    <Star key={i} className="h-4 w-4 fill-current" />
-                  ))}
-                </div>
-                <p className="mt-4 text-sm leading-relaxed text-foreground/85">
-                  “{t.quote}”
-                </p>
-                <div className="mt-6 flex items-center gap-3">
-                  <div className="grid h-11 w-11 place-items-center rounded-full bg-gradient-primary font-display text-sm font-bold text-primary-foreground">
-                    {t.name.charAt(0)}
-                  </div>
-                  <div>
-                    <p className="font-display text-sm font-semibold text-foreground">
-                      {t.name}
-                    </p>
-                    <p className="text-xs text-muted-foreground">{t.trip}</p>
-                  </div>
-                </div>
-              </div>
-            </StaggerItem>
-          ))}
-        </Stagger>
-      </Section>
+
+
 
       {/* CTA */}
       <section className="relative overflow-hidden py-24">

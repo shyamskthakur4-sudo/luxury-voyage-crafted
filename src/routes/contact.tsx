@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Mail, MapPin, Phone, Send, MessageCircle } from "lucide-react";
+import { Mail, MapPin, Phone, MessageCircle } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { FadeIn } from "../components/site/motion";
@@ -34,9 +34,20 @@ function Contact() {
       toast.error("Please share your name and phone number.");
       return;
     }
-    toast.success("Thank you! Our travel designer will reach out shortly.");
+    const lines = [
+      `*New Travel Enquiry — Megha Tours & Travel*`,
+      ``,
+      `*Name:* ${form.name}`,
+      `*Phone:* ${form.phone}`,
+      form.email ? `*Email:* ${form.email}` : null,
+      form.message ? `*Message:* ${form.message}` : null,
+    ].filter(Boolean);
+    const url = `https://wa.me/919784349333?text=${encodeURIComponent(lines.join("\n"))}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+    toast.success("Opening WhatsApp to send your enquiry…");
     setForm({ name: "", phone: "", email: "", message: "" });
   };
+
 
   return (
     <div>
@@ -133,8 +144,9 @@ function Contact() {
                   type="submit"
                   className="btn-gold mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-4 text-sm font-semibold sm:w-auto"
                 >
-                  Send Enquiry <Send className="h-4 w-4" />
+                  Send Enquiry via WhatsApp <MessageCircle className="h-4 w-4" />
                 </button>
+
               </form>
             </FadeIn>
           </div>
