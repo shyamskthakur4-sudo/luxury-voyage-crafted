@@ -50,10 +50,13 @@ const categories: Cat[] = ["All", "Domestic", "International", "Religious", "Fam
 
 function Packages() {
   const [active, setActive] = useState<Cat>("All");
-  const list = useMemo(
-    () => (active === "All" ? packages : packages.filter((p) => p.category === active)),
-    [active],
-  );
+  const list = useMemo(() => {
+    if (active === "All") return packages;
+    const key = active.toLowerCase();
+    const filtered = packages.filter((p) => p.category.toLowerCase() === key);
+    return filtered.length > 0 ? filtered : packages;
+  }, [active]);
+
 
   return (
     <div>
