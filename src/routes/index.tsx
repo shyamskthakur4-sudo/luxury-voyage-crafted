@@ -11,7 +11,6 @@ import {
   Globe,
   Landmark,
   Briefcase,
-  Star,
   ShieldCheck,
   Wallet,
   Headphones,
