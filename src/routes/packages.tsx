@@ -50,10 +50,13 @@ const categories: Cat[] = ["All", "Domestic", "International", "Religious", "Fam
 
 function Packages() {
   const [active, setActive] = useState<Cat>("All");
-  const list = useMemo(
-    () => (active === "All" ? packages : packages.filter((p) => p.category === active)),
-    [active],
-  );
+  const list = useMemo(() => {
+    if (active === "All") return packages;
+    const key = active.toLowerCase();
+    const filtered = packages.filter((p) => p.category.toLowerCase() === key);
+    return filtered.length > 0 ? filtered : packages;
+  }, [active]);
+
 
   return (
     <div>
@@ -92,7 +95,7 @@ function Packages() {
             ))}
           </FadeIn>
 
-          <Stagger className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <Stagger key={active} className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {list.map((p) => (
               <StaggerItem key={p.title}>
                 <div className="card-hover group h-full overflow-hidden rounded-3xl border border-border bg-card shadow-card">
