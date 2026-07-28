@@ -95,7 +95,7 @@ function Packages() {
             ))}
           </FadeIn>
 
-          <Stagger className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <Stagger key={active} className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {list.map((p) => (
               <StaggerItem key={p.title}>
                 <div className="card-hover group h-full overflow-hidden rounded-3xl border border-border bg-card shadow-card">
