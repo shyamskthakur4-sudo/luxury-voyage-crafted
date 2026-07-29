@@ -1,11 +1,26 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { ArrowRight, Clock, MapPin, Star } from "lucide-react";
-import { useMemo, useState } from "react";
+import { ArrowRight, Clock, MapPin, Star, X } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
 import { FadeIn } from "../components/site/motion";
 import { IMG } from "../lib/images";
 
+type PackagesSearch = {
+  destination?: string;
+  date?: string;
+  adults?: number;
+  children?: number;
+  infants?: number;
+};
+
 export const Route = createFileRoute("/packages")({
+  validateSearch: (search: Record<string, unknown>): PackagesSearch => ({
+    destination: typeof search.destination === "string" ? search.destination : undefined,
+    date: typeof search.date === "string" ? search.date : undefined,
+    adults: search.adults ? Number(search.adults) : undefined,
+    children: search.children ? Number(search.children) : undefined,
+    infants: search.infants ? Number(search.infants) : undefined,
+  }),
   head: () => ({
     meta: [
       { title: "Holiday Packages — Megha Tours & Travel" },
