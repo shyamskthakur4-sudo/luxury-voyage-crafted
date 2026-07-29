@@ -162,10 +162,10 @@ function Packages() {
           </FadeIn>
 
 
-          <div key={active} className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div key={`${active}-${destQuery}`} className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {list.map((p, i) => (
               <motion.div
-                key={`${active}-${p.title}`}
+                key={`${active}-${destQuery}-${p.title}`}
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: Math.min(i * 0.06, 0.4), ease: [0.22, 1, 0.36, 1] }}
