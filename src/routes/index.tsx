@@ -395,31 +395,6 @@ function Home() {
   );
 }
 
-function BookingField({
-  icon: Icon,
-  label,
-  value,
-}: {
-  icon: typeof MapPin;
-  label: string;
-  value: string;
-}) {
-  return (
-    <div className="flex items-center gap-3 rounded-2xl bg-white/70 px-4 py-3">
-      <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-gradient-primary text-primary-foreground">
-        <Icon className="h-4 w-4" />
-      </div>
-      <div className="min-w-0">
-        <p className="text-[10px] uppercase tracking-widest text-muted-foreground">
-          {label}
-        </p>
-        <p className="truncate font-display text-sm font-semibold text-foreground">
-          {value}
-        </p>
-      </div>
-    </div>
-  );
-}
 
 function Section({
   eyebrow,
