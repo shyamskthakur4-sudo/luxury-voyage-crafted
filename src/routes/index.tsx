@@ -18,11 +18,10 @@ import {
   Sparkles,
   ThumbsUp,
   ArrowRight,
-  Calendar,
-  Users,
 } from "lucide-react";
 import { useRef } from "react";
 import { FadeIn, Stagger, StaggerItem, Counter } from "../components/site/motion";
+import { HeroSearch } from "../components/site/HeroSearch";
 import { IMG } from "../lib/images";
 
 export const Route = createFileRoute("/")({
@@ -177,17 +176,7 @@ function Home() {
             className="mt-14 max-w-4xl"
           >
             <div className="glass rounded-3xl p-5 sm:p-6 shadow-elegant animate-float">
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                <BookingField icon={MapPin} label="Destination" value="Where to?" />
-                <BookingField icon={Calendar} label="Departure" value="Add date" />
-                <BookingField icon={Users} label="Travellers" value="2 Adults" />
-                <Link
-                  to="/contact"
-                  className="btn-gold inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-4 text-sm font-semibold"
-                >
-                  Search Trips <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
+              <HeroSearch />
             </div>
           </motion.div>
         </div>
@@ -406,31 +395,6 @@ function Home() {
   );
 }
 
-function BookingField({
-  icon: Icon,
-  label,
-  value,
-}: {
-  icon: typeof MapPin;
-  label: string;
-  value: string;
-}) {
-  return (
-    <div className="flex items-center gap-3 rounded-2xl bg-white/70 px-4 py-3">
-      <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-gradient-primary text-primary-foreground">
-        <Icon className="h-4 w-4" />
-      </div>
-      <div className="min-w-0">
-        <p className="text-[10px] uppercase tracking-widest text-muted-foreground">
-          {label}
-        </p>
-        <p className="truncate font-display text-sm font-semibold text-foreground">
-          {value}
-        </p>
-      </div>
-    </div>
-  );
-}
 
 function Section({
   eyebrow,
