@@ -65,14 +65,46 @@ const packages: {
 const categories: Cat[] = ["All", "Domestic", "International", "Religious", "Family", "Honeymoon"];
 
 function Packages() {
+  const searchParams = Route.useSearch();
+  const navigate = Route.useNavigate();
   const [active, setActive] = useState<Cat>("All");
-  const list = useMemo(() => {
-    if (active === "All") return packages;
-    const key = active.toLowerCase();
-    const filtered = packages.filter((p) => p.category.toLowerCase() === key);
-    return filtered.length > 0 ? filtered : packages;
-  }, [active]);
+  const destQuery = (searchParams.destination || "").trim();
 
+  useEffect(() => {
+    if (destQuery) {
+      // If destination matches a category, activate the tab
+      const asCat = categories.find(
+        (c) => c.toLowerCase() === destQuery.toLowerCase(),
+      );
+      if (asCat) setActive(asCat);
+    }
+  }, [destQuery]);
+
+  const list = useMemo(() => {
+    let filtered = packages;
+
+    if (destQuery) {
+      const q = destQuery.toLowerCase();
+      const byDest = packages.filter(
+        (p) =>
+          p.title.toLowerCase().includes(q) ||
+          p.category.toLowerCase().includes(q) ||
+          p.highlights.some((h) => h.toLowerCase().includes(q)),
+      );
+      if (byDest.length > 0) filtered = byDest;
+    }
+
+    if (active !== "All") {
+      const key = active.toLowerCase();
+      const byCat = filtered.filter((p) => p.category.toLowerCase() === key);
+      if (byCat.length > 0) filtered = byCat;
+    }
+
+    return filtered.length > 0 ? filtered : packages;
+  }, [active, destQuery]);
+
+  const clearSearch = () =>
+    navigate({ search: {} as PackagesSearch, replace: true });
 
   return (
     <div>
@@ -95,6 +127,24 @@ function Packages() {
 
       <section className="py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          {destQuery && (
+            <FadeIn className="mb-6 flex justify-center">
+              <div className="inline-flex items-center gap-3 rounded-full border border-border bg-card px-4 py-2 text-sm shadow-card">
+                <span className="text-muted-foreground">Showing results for</span>
+                <span className="font-display font-semibold text-foreground">
+                  {destQuery}
+                </span>
+                <button
+                  onClick={clearSearch}
+                  className="grid h-6 w-6 place-items-center rounded-full bg-accent text-foreground transition hover:bg-primary hover:text-primary-foreground"
+                  aria-label="Clear search"
+                >
+                  <X className="h-3.5 w-3.5" />
+                </button>
+              </div>
+            </FadeIn>
+          )}
+
           <FadeIn className="mb-10 flex flex-wrap justify-center gap-2">
             {categories.map((c) => (
               <button
@@ -110,6 +160,7 @@ function Packages() {
               </button>
             ))}
           </FadeIn>
+
 
           <div key={active} className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {list.map((p, i) => (
