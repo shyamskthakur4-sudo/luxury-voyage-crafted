@@ -18,11 +18,10 @@ import {
   Sparkles,
   ThumbsUp,
   ArrowRight,
-  Calendar,
-  Users,
 } from "lucide-react";
 import { useRef } from "react";
 import { FadeIn, Stagger, StaggerItem, Counter } from "../components/site/motion";
+import { HeroSearch } from "../components/site/HeroSearch";
 import { IMG } from "../lib/images";
 
 export const Route = createFileRoute("/")({
