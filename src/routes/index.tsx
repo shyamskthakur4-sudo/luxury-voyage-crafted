@@ -176,17 +176,7 @@ function Home() {
             className="mt-14 max-w-4xl"
           >
             <div className="glass rounded-3xl p-5 sm:p-6 shadow-elegant animate-float">
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                <BookingField icon={MapPin} label="Destination" value="Where to?" />
-                <BookingField icon={Calendar} label="Departure" value="Add date" />
-                <BookingField icon={Users} label="Travellers" value="2 Adults" />
-                <Link
-                  to="/contact"
-                  className="btn-gold inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-4 text-sm font-semibold"
-                >
-                  Search Trips <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
+              <HeroSearch />
             </div>
           </motion.div>
         </div>
