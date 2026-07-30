@@ -3,6 +3,7 @@ import { format } from "date-fns";
 import {
   ArrowRight,
   Calendar as CalendarIcon,
+  ChevronDown,
   MapPin,
   Minus,
   Plus,
@@ -11,6 +12,7 @@ import {
 import { useState } from "react";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+
 
 export function HeroSearch() {
   const navigate = useNavigate();

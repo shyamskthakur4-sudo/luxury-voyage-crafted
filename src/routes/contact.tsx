@@ -2,8 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { format } from "date-fns";
 import {
   Calendar as CalendarIcon,
-  Check,
-  ChevronDown,
   Mail,
   MapPin,
   MessageCircle,
@@ -12,19 +10,12 @@ import {
 import { useState } from "react";
 import { toast } from "sonner";
 import { Calendar } from "@/components/ui/calendar";
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from "@/components/ui/command";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { CountStepper } from "@/components/site/HeroSearch";
 import { FadeIn } from "@/components/site/motion";
-import { BUDGET_RANGES, DESTINATIONS, PACKAGE_TYPES } from "@/lib/destinations";
+import { BUDGET_RANGES, PACKAGE_TYPES } from "@/lib/destinations";
 import { cn } from "@/lib/utils";
+
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -79,10 +70,10 @@ const initialForm: FormState = {
 
 function Contact() {
   const [form, setForm] = useState<FormState>(initialForm);
-  const [destOpen, setDestOpen] = useState(false);
 
   const setField = <K extends keyof FormState>(k: K, v: FormState[K]) =>
     setForm((f) => ({ ...f, [k]: v }));
+
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
