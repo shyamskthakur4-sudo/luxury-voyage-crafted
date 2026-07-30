@@ -3,8 +3,6 @@ import { format } from "date-fns";
 import {
   ArrowRight,
   Calendar as CalendarIcon,
-  Check,
-  ChevronDown,
   MapPin,
   Minus,
   Plus,
@@ -12,24 +10,13 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { Calendar } from "@/components/ui/calendar";
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from "@/components/ui/command";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { DESTINATIONS } from "@/lib/destinations";
-import { cn } from "@/lib/utils";
 
 export function HeroSearch() {
   const navigate = useNavigate();
   const [destination, setDestination] = useState("");
   const [date, setDate] = useState<Date | undefined>();
   const [travellers, setTravellers] = useState({ adults: 2, children: 0, infants: 0 });
-  const [destOpen, setDestOpen] = useState(false);
 
   const totalTravellers = travellers.adults + travellers.children + travellers.infants;
 
@@ -37,7 +24,7 @@ export function HeroSearch() {
     navigate({
       to: "/packages",
       search: {
-        destination: destination || undefined,
+        destination: destination.trim() || undefined,
         date: date ? format(date, "yyyy-MM-dd") : undefined,
         adults: travellers.adults || undefined,
         children: travellers.children || undefined,
@@ -46,60 +33,28 @@ export function HeroSearch() {
     });
   };
 
+
   return (
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {/* Destination */}
-      <Popover open={destOpen} onOpenChange={setDestOpen}>
-        <PopoverTrigger asChild>
-          <button
-            type="button"
-            className="flex items-center gap-3 rounded-2xl bg-white/70 px-4 py-3 text-left transition hover:bg-white/90"
-          >
-            <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-gradient-primary text-primary-foreground">
-              <MapPin className="h-4 w-4" />
-            </div>
-            <div className="min-w-0 flex-1">
-              <p className="text-[10px] uppercase tracking-widest text-muted-foreground">
-                Destination
-              </p>
-              <p className="truncate font-display text-sm font-semibold text-foreground">
-                {destination || "Where to?"}
-              </p>
-            </div>
-            <ChevronDown className="h-4 w-4 text-muted-foreground" />
-          </button>
-        </PopoverTrigger>
-        <PopoverContent className="w-[280px] p-0 pointer-events-auto" align="start">
-          <Command>
-            <CommandInput placeholder="Search destinations…" />
-            <CommandList>
-              <CommandEmpty>No destination found.</CommandEmpty>
-              <CommandGroup>
-                {DESTINATIONS.map((d) => (
-                  <CommandItem
-                    key={d}
-                    value={d}
-                    onSelect={(v) => {
-                      setDestination(v);
-                      setDestOpen(false);
-                    }}
-                  >
-                    <Check
-                      className={cn(
-                        "mr-2 h-4 w-4",
-                        destination.toLowerCase() === d.toLowerCase()
-                          ? "opacity-100"
-                          : "opacity-0",
-                      )}
-                    />
-                    {d}
-                  </CommandItem>
-                ))}
-              </CommandGroup>
-            </CommandList>
-          </Command>
-        </PopoverContent>
-      </Popover>
+      <div className="flex items-center gap-3 rounded-2xl bg-white/70 px-4 py-3 text-left transition hover:bg-white/90">
+        <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-gradient-primary text-primary-foreground">
+          <MapPin className="h-4 w-4" />
+        </div>
+        <div className="min-w-0 flex-1">
+          <p className="text-[10px] uppercase tracking-widest text-muted-foreground">
+            Destination
+          </p>
+          <input
+            type="text"
+            value={destination}
+            onChange={(e) => setDestination(e.target.value)}
+            placeholder="Where to?"
+            className="w-full truncate bg-transparent font-display text-sm font-semibold text-foreground placeholder:text-foreground/60 outline-none"
+          />
+        </div>
+      </div>
+
 
       {/* Date */}
       <Popover>
