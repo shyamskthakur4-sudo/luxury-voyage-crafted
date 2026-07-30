@@ -2,8 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { format } from "date-fns";
 import {
   Calendar as CalendarIcon,
-  Check,
-  ChevronDown,
   Mail,
   MapPin,
   MessageCircle,
@@ -12,19 +10,12 @@ import {
 import { useState } from "react";
 import { toast } from "sonner";
 import { Calendar } from "@/components/ui/calendar";
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from "@/components/ui/command";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { CountStepper } from "@/components/site/HeroSearch";
 import { FadeIn } from "@/components/site/motion";
-import { BUDGET_RANGES, DESTINATIONS, PACKAGE_TYPES } from "@/lib/destinations";
+import { BUDGET_RANGES, PACKAGE_TYPES } from "@/lib/destinations";
 import { cn } from "@/lib/utils";
+
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -79,10 +70,10 @@ const initialForm: FormState = {
 
 function Contact() {
   const [form, setForm] = useState<FormState>(initialForm);
-  const [destOpen, setDestOpen] = useState(false);
 
   const setField = <K extends keyof FormState>(k: K, v: FormState[K]) =>
     setForm((f) => ({ ...f, [k]: v }));
+
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -217,52 +208,14 @@ function Contact() {
                   </div>
 
                   {/* Destination */}
-                  <div>
-                    <FieldLabel required>Destination</FieldLabel>
-                    <Popover open={destOpen} onOpenChange={setDestOpen}>
-                      <PopoverTrigger asChild>
-                        <button
-                          type="button"
-                          className="mt-2 flex w-full items-center justify-between rounded-2xl border border-border bg-background px-4 py-3 text-left text-sm outline-none transition focus:border-primary"
-                        >
-                          <span className={form.destination ? "text-foreground" : "text-muted-foreground"}>
-                            {form.destination || "Choose a destination"}
-                          </span>
-                          <ChevronDown className="h-4 w-4 text-muted-foreground" />
-                        </button>
-                      </PopoverTrigger>
-                      <PopoverContent className="w-[280px] p-0 pointer-events-auto" align="start">
-                        <Command>
-                          <CommandInput placeholder="Search destinations…" />
-                          <CommandList>
-                            <CommandEmpty>No destination found.</CommandEmpty>
-                            <CommandGroup>
-                              {DESTINATIONS.map((d) => (
-                                <CommandItem
-                                  key={d}
-                                  value={d}
-                                  onSelect={(v) => {
-                                    setField("destination", v);
-                                    setDestOpen(false);
-                                  }}
-                                >
-                                  <Check
-                                    className={cn(
-                                      "mr-2 h-4 w-4",
-                                      form.destination.toLowerCase() === d.toLowerCase()
-                                        ? "opacity-100"
-                                        : "opacity-0",
-                                    )}
-                                  />
-                                  {d}
-                                </CommandItem>
-                              ))}
-                            </CommandGroup>
-                          </CommandList>
-                        </Command>
-                      </PopoverContent>
-                    </Popover>
-                  </div>
+                  <Field
+                    label="Destination"
+                    required
+                    value={form.destination}
+                    onChange={(v) => setField("destination", v)}
+                    placeholder="e.g. Dubai, Kerala, Europe"
+                  />
+
 
                   {/* Package Type */}
                   <div>

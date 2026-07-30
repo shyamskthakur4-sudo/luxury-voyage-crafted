@@ -1,14 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import {
-  Plane,
-  Facebook,
-  Instagram,
-  Twitter,
-  Youtube,
-  Phone,
-  Mail,
-  MapPin,
-} from "lucide-react";
+import { Plane, Phone, Mail, MapPin } from "lucide-react";
+
 
 export function Footer() {
   return (
@@ -41,18 +33,6 @@ export function Footer() {
               Your trusted travel partner — crafting unforgettable journeys
               across the globe with elegance, ease and expertise.
             </p>
-            <div className="mt-6 flex gap-3">
-              {[Facebook, Instagram, Twitter, Youtube].map((Icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-navy-foreground/80 transition hover:border-gold hover:text-gold"
-                  aria-label="social"
-                >
-                  <Icon className="h-4 w-4" />
-                </a>
-              ))}
-            </div>
           </div>
 
           <div>
