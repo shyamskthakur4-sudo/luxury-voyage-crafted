@@ -59,10 +59,10 @@ export function Navbar() {
 
         <div className="hidden lg:flex items-center gap-3">
           <a
-            href="tel:9784349333"
+            href="tel:+919119303967"
             className="text-sm font-semibold text-foreground/80 hover:text-primary transition-colors"
           >
-            +91 97843 49333
+            +91 91193 03967
           </a>
           <Link
             to="/contact"

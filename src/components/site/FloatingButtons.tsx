@@ -21,7 +21,7 @@ export function FloatingButtons() {
         <MessageCircle className="h-6 w-6" />
       </a>
       <a
-        href="tel:9784349333"
+        href="tel:+919119303967"
         className="grid place-items-center rounded-full bg-gradient-primary text-primary-foreground shadow-elegant transition hover:scale-110"
         style={{ height: 52, width: 52 }}
         aria-label="Call"

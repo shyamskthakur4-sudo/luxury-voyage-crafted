@@ -123,7 +123,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@type": "TravelAgency",
           name: "Megha Tours & Travel",
           url: "https://meghatoursandtravel.com",
-          telephone: "+91-9784349333",
+          telephone: "+91-9119303967",
           email: "pintushrama8962@gmail.com",
         }),
       },
