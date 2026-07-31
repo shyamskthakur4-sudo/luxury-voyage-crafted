@@ -54,7 +54,7 @@ const services = [
 ];
 
 const faqs = [
-  { q: "How do I book a package?", a: "You can book online, call us at +91 97843 49333 or WhatsApp us. Our travel designer will craft an itinerary for you within 24 hours." },
+  { q: "How do I book a package?", a: "You can book online, call us at +91 91193 03967 or WhatsApp us. Our travel designer will craft an itinerary for you within 24 hours." },
   { q: "Do you offer EMI or payment plans?", a: "Yes. We offer flexible EMI options on select credit cards and partner instalment plans." },
   { q: "Are your packages customisable?", a: "Absolutely. Every itinerary is tailored to your dates, interests, dietary needs and pace of travel." },
   { q: "What about visa support?", a: "We handle end-to-end documentation, appointments and courier logistics for over 50 countries." },

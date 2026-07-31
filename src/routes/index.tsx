@@ -161,7 +161,7 @@ function Home() {
               Book Now <ArrowRight className="h-4 w-4" />
             </Link>
             <a
-              href="tel:9784349333"
+              href="tel:+919119303967"
               className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/20"
             >
               Call Now
@@ -382,7 +382,7 @@ function Home() {
                 Plan My Trip <ArrowRight className="h-4 w-4" />
               </Link>
               <a
-                href="tel:9784349333"
+                href="tel:+919119303967"
                 className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-8 py-4 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/20"
               >
                 Talk to an expert

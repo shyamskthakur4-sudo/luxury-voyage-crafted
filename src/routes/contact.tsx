@@ -24,8 +24,8 @@ export const Route = createFileRoute("/contact")({
       { title: "Contact — Megha Tours & Travel" },
       {
         name: "description",
-        content:
-          "Talk to a travel designer. Call +91 97843 49333 or email pintushrama8962@gmail.com.",
+          content:
+            "Talk to a travel designer. Call +91 91193 03967 or email pintushrama8962@gmail.com.",
       },
       { property: "og:title", content: "Contact — Megha Tours & Travel" },
       {
@@ -132,7 +132,7 @@ function Contact() {
             <FadeIn className="lg:col-span-2">
               <div className="space-y-4">
                 {[
-                  { icon: Phone, label: "Phone", value: "+91 97843 49333", href: "tel:9784349333" },
+                  { icon: Phone, label: "Phone", value: "+91 91193 03967", href: "tel:+919119303967" },
                   { icon: MessageCircle, label: "WhatsApp", value: "+91 91193 03967", href: "https://wa.me/919119303967" },
                   { icon: Mail, label: "Email", value: "pintushrama8962@gmail.com", href: "mailto:pintushrama8962@gmail.com" },
                   { icon: Globe, label: "Website", value: "meghatoursandtravel.com" },
