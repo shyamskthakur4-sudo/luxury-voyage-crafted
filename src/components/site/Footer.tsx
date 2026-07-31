@@ -100,8 +100,12 @@ export function Footer() {
                 </a>
               </li>
               <li className="flex gap-3">
-                <MapPin className="h-4 w-4 shrink-0 text-gold mt-0.5" />
+                <Globe className="h-4 w-4 shrink-0 text-gold mt-0.5" />
                 <span>meghatoursandtravel.com</span>
+              </li>
+              <li className="flex gap-3">
+                <MapPin className="h-4 w-4 shrink-0 text-gold mt-0.5" />
+                <span>B45 / Shyam colony, Ram Mandir, Sitamarhi Tonk road, Jaipur</span>
               </li>
             </ul>
           </div>
