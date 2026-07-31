@@ -11,7 +11,7 @@ export function FloatingButtons() {
   return (
     <div className="fixed bottom-5 right-5 z-40 flex flex-col gap-3">
       <a
-        href="https://wa.me/919784349333"
+        href="https://wa.me/919119303967"
         target="_blank"
         rel="noreferrer"
         className="grid h-13 w-13 h-13 place-items-center rounded-full bg-[#25D366] text-white shadow-elegant transition hover:scale-110"

@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { format } from "date-fns";
 import {
   Calendar as CalendarIcon,
+  Globe,
   Mail,
   MapPin,
   MessageCircle,
@@ -101,7 +102,7 @@ function Contact() {
       form.message ? `\n*Special Requirements:*\n${form.message}` : null,
     ].filter(Boolean);
 
-    const url = `https://wa.me/919784349333?text=${encodeURIComponent(lines.join("\n"))}`;
+    const url = `https://wa.me/919119303967?text=${encodeURIComponent(lines.join("\n"))}`;
     window.open(url, "_blank", "noopener,noreferrer");
     toast.success("Opening WhatsApp to send your enquiry…");
     setForm(initialForm);
@@ -132,9 +133,10 @@ function Contact() {
               <div className="space-y-4">
                 {[
                   { icon: Phone, label: "Phone", value: "+91 97843 49333", href: "tel:9784349333" },
-                  { icon: MessageCircle, label: "WhatsApp", value: "+91 97843 49333", href: "https://wa.me/919784349333" },
+                  { icon: MessageCircle, label: "WhatsApp", value: "+91 91193 03967", href: "https://wa.me/919119303967" },
                   { icon: Mail, label: "Email", value: "pintushrama8962@gmail.com", href: "mailto:pintushrama8962@gmail.com" },
-                  { icon: MapPin, label: "Website", value: "meghatoursandtravel.com" },
+                  { icon: Globe, label: "Website", value: "meghatoursandtravel.com" },
+                  { icon: MapPin, label: "Address", value: "B45 / Shyam colony, Ram Mandir, Sitamarhi Tonk road, Jaipur" },
                 ].map((c) => (
                   <a
                     key={c.label}
@@ -159,7 +161,7 @@ function Contact() {
               <div className="mt-6 overflow-hidden rounded-3xl border border-border shadow-card">
                 <iframe
                   title="Location"
-                  src="https://www.google.com/maps?q=Jaipur%2C+Rajasthan&output=embed"
+                  src="https://www.google.com/maps?q=26.829815%2C75.797081&output=embed"
                   width="100%"
                   height="280"
                   loading="lazy"
